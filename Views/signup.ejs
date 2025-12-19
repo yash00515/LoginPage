@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial;
+      background-color: forestgreen;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h2 {
+      text-decoration: underline;
+    }
+
+    .input {
+      padding: 8px;
+      margin: 5px;
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 8px 15px;
+      font-size: 15px;
+      background: black;
+      color: white;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Signup</h2>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form method="POST">
+    <input class="input" type="text" name="name" placeholder="Name" required><br>
+    <input class="input" type="email" name="email" placeholder="Email" required><br>
+ <input class="input" type="text" name="mobile" placeholder="Mobile Number" required><br>
+
+    <input class="input" type="password" name="password" placeholder="Password" required><br><br>
+    <button class="btn" type="submit">Signup</button>
+  </form>
+
+  <p>Already user? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>

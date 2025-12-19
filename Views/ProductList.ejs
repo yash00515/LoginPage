@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+
+  <style>
+    body{
+      text-align: center;
+      margin-top: 50px;
+      font-family: Arial;
+    }
+
+    h2{
+      text-decoration: underline;
+    }
+
+    .card{
+      margin: 15px;
+    }
+
+    .btn{
+      background-color: black;
+      color: white;
+      padding: 5px ;
+      text-decoration: none;
+     
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Product List</h2>
+
+<a class="btn" href="/products/add">Add New Product</a>
+<br><br>
+
+<% products.forEach(p => { %>
+  <div class="card">
+    <b><%= p.name %></b> - Rs <%= p.price %><br>
+    <a class="btn" href="/product/edit/<%= p._id %>">Edit</a>
+    <a class="btn" href="/products/delete/<%= p._id %>">Delete</a>
+  </div>
+<% }) %>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

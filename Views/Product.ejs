@@ -1,0 +1,111 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+  <style>
+    body{
+      text-align: center;
+      font-family: Arial;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      padding: 20px;
+    }
+
+    h2{
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    .grid-container{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .product-card{
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 250px;
+    }
+
+    .product-card img{
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h3{
+      margin: 10px 0 5px 0;
+    }
+
+    .product-card p{
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    .product-card a{
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      background: black;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .product-card a:hover{
+      background: #333;
+    }
+
+    .add-product{
+      margin-bottom: 20px;
+    }
+
+    .add-product a{
+      padding: 8px 15px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .add-product a:hover{
+      background: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+<h2>All Products</h2>
+
+<div class="add-product">
+  <a href="/products/add">Add New Product</a>
+</div>
+
+<div class="grid-container">
+  <% products.forEach(product => { %>
+    <div class="product-card">
+      <!-- IMAGE FIX -->
+      <img src="<%= product.image.startsWith('http') ? product.image : '/images/' + product.image %>" 
+           alt="<%= product.name %>">
+      <h3><%= product.name %></h3>
+      <p>Rs <%= product.price %></p>
+      <p><%= product.description %></p>
+      <a href="/product/edit/<%= product._id %>">Edit</a>
+      <a href="/products/delete/<%= product._id %>">Delete</a>
+    </div>
+  <% }) %>
+</div>
+
+<a href="/dashboard" style="display:block; margin-top:20px; font-size:16px;">Back to Dashboard</a>
+
+</body>
+</html>

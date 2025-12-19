@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+    }
+
+    h2{
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    input{
+      font-size: 16px;
+      padding: 8px;
+      margin: 5px;
+      width: 250px;
+    }
+
+    .btn{
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      padding: 8px 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    a{
+      display: block;
+      margin-top: 15px;
+      font-size: 16px;
+      color: black;
+      text-decoration: none;
+    }
+
+     
+  </style>
+</head>
+<body>
+
+<h2>Add Product</h2>
+
+<form method="POST">
+  <input type="text" name="name" placeholder="Product Name" required><br>
+  <input type="number" name="price" placeholder="Price" required><br>
+  <input type="text" name="description" placeholder="Description"><br>
+  <input type="text" name="image" placeholder="Image URL or filename"><br><br>
+  <button class="btn" type="submit">Add Product</button>
+</form>
+
+<a href="/products">Back to Products</a>
+
+</body>
+</html>
